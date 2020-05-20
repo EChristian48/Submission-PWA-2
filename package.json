@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/EChristian48/Submission-PWA-2#readme",
   "dependencies": {
-    "bulma": "^0.8.2"
+    "materialize-css": "^1.0.0-rc.2"
   }
 }
