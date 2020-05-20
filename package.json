@@ -16,5 +16,7 @@
     "url": "https://github.com/EChristian48/Submission-PWA-2/issues"
   },
   "homepage": "https://github.com/EChristian48/Submission-PWA-2#readme",
-  "dependencies": {}
+  "dependencies": {
+    "bulma": "^0.8.2"
+  }
 }
