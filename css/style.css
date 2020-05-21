@@ -1,2 +1,10 @@
 @import "./color.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+main {
+    min-height: 85vh;
+}
+
+footer {
+    height: 7vh;
+}
