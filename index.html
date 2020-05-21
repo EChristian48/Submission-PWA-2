@@ -9,13 +9,53 @@
 
     <link href="./site.webmanifest" rel="manifest">
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
     <title>CO-BOLa</title>
 </head>
 <body>
 
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark cyan-400">
 
+        <a class="navbar-brand" href="#">Cobol</a>
+
+        <button class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Klub</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" role="button">
+                        Liga
+                    </a>
+                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Premier League</a>
+                        <a class="dropdown-item" href="#">La Liga</a>
+                        <a class="dropdown-item" href="#">Bundesliga</a>
+                        <a class="dropdown-item" href="#">Serie A</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Klub</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </nav>
+</header>
+
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/@popperjs/core/dist/umd/popper.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
 </body>
-
 </html>

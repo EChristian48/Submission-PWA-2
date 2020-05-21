@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/EChristian48/Submission-PWA-2#readme",
   "dependencies": {
-    "bulma": "^0.8.2"
+    "@popperjs/core": "^2.4.0",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1"
   }
 }
