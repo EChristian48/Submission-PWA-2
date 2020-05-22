@@ -1,0 +1,30 @@
+@keyframes darken {
+    from {
+        filter: brightness(100%);
+    }
+    to {
+        filter: brightness(80%);
+    }
+}
+
+@keyframes brighten {
+    from {
+        filter: brightness(80%);
+    }
+    to {
+        filter: brightness(100%);
+    }
+}
+
+/* Asalnya mau pake animasi, tapi dicancel karena makan waktu*/
+
+/*.card-img {*/
+/*    animation-name: brighten;*/
+/*    animation-duration: 800ms;*/
+/*}*/
+
+/*.card-img:hover {*/
+/*    animation-name: darken;*/
+/*    animation-duration: 800ms;*/
+/*    filter: brightness(80%);*/
+/*}*/
