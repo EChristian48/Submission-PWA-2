@@ -5,13 +5,13 @@ class CardAnim {
 
         for (const card of cards) {
             console.log(card.firstElementChild)
+            const coll = $(card.children[1]).collapse()
+            coll.collapse('hide')
             card.addEventListener('mouseover', () => {
-                card.firstElementChild.style.filter = 'brightness(80%)'
-                card.children[1].classList.remove('d-none')
+                coll.collapse('show')
             })
             card.addEventListener('mouseout', () => {
-                card.firstElementChild.style.filter = 'brightness(100%)'
-                card.children[1].classList.add('d-none')
+                coll.collapse('hide')
             })
         }
     }

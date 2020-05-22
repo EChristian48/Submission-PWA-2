@@ -16,15 +16,13 @@
     }
 }
 
-/* Asalnya mau pake animasi, tapi dicancel karena makan waktu*/
+.card {
+    animation-name: brighten;
+    animation-duration: 800ms;
+}
 
-/*.card-img {*/
-/*    animation-name: brighten;*/
-/*    animation-duration: 800ms;*/
-/*}*/
-
-/*.card-img:hover {*/
-/*    animation-name: darken;*/
-/*    animation-duration: 800ms;*/
-/*    filter: brightness(80%);*/
-/*}*/
+.card:hover {
+    animation-name: darken;
+    animation-duration: 800ms;
+    filter: brightness(80%);
+}
