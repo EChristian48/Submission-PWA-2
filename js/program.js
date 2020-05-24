@@ -4,6 +4,7 @@ import {ClubHighlight} from "./components/club-highlight.js";
 class Program {
     static async main() {
         try {
+            Program.registerSW()
             await Program.loadHome()
         } catch (e) {
             console.error(`Hmmm entah kenapa program-nya error: ${e}`)
@@ -29,14 +30,11 @@ class Program {
     }
 
     static async registerSW() {
-        if ('serviceWorker' in navigator) {
-            try {
-
-            } catch (e) {
-
-            }
-        } else {
-
+        try {
+            await navigator.serviceWorker.register('../sw.js')
+            console.log('Registrasi sw berhasil! Kece kan')
+        } catch (e) {
+            console.error(`Kenapa ya? kok error register sw: ${e}`)
         }
     }
 }
