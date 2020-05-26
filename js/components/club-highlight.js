@@ -22,10 +22,6 @@ class ClubHighlight extends HTMLElement {
                 </div>
         `
         this.endingHTML = `
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
         `
@@ -52,7 +48,7 @@ class ClubHighlight extends HTMLElement {
     getImgHTML() {
         if (this._img !== null) {
             return `
-                <img alt="The team's logo" class="card-img mb-3" src="${this._img}">
+                <img alt="The team's logo, kalo broken, salahkan API-nya karena kasih link yang salah" class="card-img mb-3" src="${this._img}">
                 </div>
             `
         }
@@ -66,7 +62,7 @@ class ClubHighlight extends HTMLElement {
         return `
             <div class="col-12 col-md-9 col-lg-8">
             <h4 class="mb-3 text-center text-white">Profile:</h4>
-            <table class="table text-white">
+            <table class="table table-responsive-sm text-white">
             <tbody>
             <tr>
             <td>Country</td>
@@ -116,11 +112,16 @@ class ClubHighlight extends HTMLElement {
             <tr>
             <td>Venue</td>
             <td>${this._venue}</td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
         `
     }
 
     render() {
-        this.innerHTML = this.getNameHTML() +
+        this.innerHTML = this.beginningHTML +
+            this.getNameHTML() +
             this.getImgHTML() +
             this.getCountryHTML() +
             this.getAddressHTML() +
@@ -128,7 +129,16 @@ class ClubHighlight extends HTMLElement {
             this.getPhoneNumHTML() +
             this.getWebsiteHTML() +
             this.getFoundedHTML() +
-            this.getVenueHTML()
+            this.getVenueHTML() +
+            this.endingHTML
+    }
+
+    renderError() {
+        this.innerHTML = this.beginningHTML +
+            `
+            <h5 class="text-center text-white">Maaf, kamu harus online setidaknya sekali untuk melihat ini</h5>
+            ` +
+            this.endingHTML
     }
 }
 

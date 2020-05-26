@@ -1,29 +1,63 @@
 import {API} from "./api.js";
 import {ClubHighlight} from "./components/club-highlight.js";
+import {Helper} from "./helper.js";
+import {BUTTON_LIST} from "./constants.js";
+import {League} from "./leagues.js";
 
 class Program {
     static async main() {
         try {
-            Program.registerSW()
-            await Program.loadHome()
+            await Program.registerSW()
+            Program.registerButton()
+            Program.loadRandomClub()
         } catch (e) {
             console.error(`Hmmm entah kenapa program-nya error: ${e}`)
         }
     }
 
-    static async loadHome() {
+    static registerButton() {
+        for (const buttonID of BUTTON_LIST) {
+            const button = document.querySelector(buttonID)
+            button.addEventListener('click', async () => {
+                history.pushState({}, '', `/${button.name}`)
+                console.log('ANJ')
+                await Program.loadStandings(League.getLeagueID(button.name))
+                console.log('ING')
+            })
+        }
+    }
+
+    static async loadStandings(leagueID) {
         try {
+            Helper.removeOldContent()
+            Helper.showElement('#contentSpinner')
+            console.log('Loading standings...')
+            await API.getStandings(leagueID)
+            console.log('Loaded standings')
+        } catch (e) {
+            console.error(`Kok gagal render standings ya? ${e}`)
+        }
+    }
+
+    static async loadRandomClub() {
+        try {
+            Helper.removeOldContent()
+            Helper.showElement('#contentSpinner')
             customElements.define('club-highlight', ClubHighlight)
 
+            const content = document.querySelector('#content')
             const randomClub = document.createElement('club-highlight')
-            const section = document.querySelector('#randomClub')
             const randomClubData = await API.getRandomClub()
 
-            section.innerHTML = ''
-            section.append(randomClub)
+            if (randomClubData) {
+                randomClub.setClub(randomClubData)
+                randomClub.render()
+            } else {
+                randomClub.renderError()
+            }
 
-            randomClub.setClub(randomClubData)
-            randomClub.render()
+            content.append(randomClub)
+            Helper.hideElement('#contentSpinner')
         } catch (e) {
             console.error(`Hmmm entah kenapa gagal render: ${e}`)
         }

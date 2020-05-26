@@ -7,7 +7,12 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="#FFC107" name="theme-color">
 
-    <link href="./site.webmanifest" rel="manifest">
+    <link href="./img/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="./img/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="./img/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+    <link href="./img/icons/favicon.ico" rel="icon" type="image/png"/>
+
+    <link href="./manifest.json" rel="manifest">
     <link href="./css/style.css" rel="stylesheet">
 
     <title>CO-BOLa</title>
@@ -36,10 +41,10 @@
                             Leagues
                         </a>
                         <div class="dropdown-menu teal-100">
-                            <a class="dropdown-item" href="#">Premier League</a>
-                            <a class="dropdown-item" href="#">La Liga</a>
-                            <a class="dropdown-item" href="#">Bundesliga</a>
-                            <a class="dropdown-item" href="#">Serie A</a>
+                            <button class="dropdown-item" id="premierLeagueButton" name="premier-league">Premier League</button>
+                            <button class="dropdown-item" id="laLigaButton" name="la-liga">La Liga</button>
+                            <button class="dropdown-item" id="bundesligaButton" name="bundesliga">Bundesliga</button>
+                            <button class="dropdown-item" id="serieAButton" name="serie-a">Serie A</button>
                         </div>
                     </li>
 
@@ -61,7 +66,7 @@
             <div class="row align-items-center">
 
                 <div class="col-12 mb-3">
-                    <h3 class="text-white">Leagues by country:</h3>
+                    <h3 class="text-white">Leagues standings by country:</h3>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3 mb-3">
@@ -104,10 +109,9 @@
         </div>
     </section>
 
-    <section class="container-fluid py-2 teal-400" id="randomClub">
-        <div class="text-center py-5 my-auto">
+    <section class="container-fluid py-2 teal-400" id="content">
+        <div class="text-center py-5 my-auto d-none" id="contentSpinner">
             <div class="spinner-border"></div>
-            <p>Loading Random Club Highlight...</p>
         </div>
     </section>
 

@@ -11,24 +11,22 @@ class API {
                 },
             })
             const json = await response.json()
-            console.log(json.teams[randomClub])
             return await json.teams[randomClub]
         } catch (e) {
             console.error(e)
+            return false
         }
     }
 
-    static async getCLub(id) {
+    static async getStandings(leagueID) {
         try {
-            const randomClub = Helper.random(0, 47)
-            const response = await fetch(`https://${API_URL}/teams`, {
+            const response = await fetch(`https://${API_URL}/competitions/${leagueID}/standings`, {
                 headers: {
                     'X-Auth-Token': API_KEY,
                 },
             })
             const json = await response.json()
-            console.log(json.teams[randomClub])
-            return await json.teams[randomClub]
+            console.log(json)
         } catch (e) {
             console.error(e)
         }
