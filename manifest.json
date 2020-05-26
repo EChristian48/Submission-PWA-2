@@ -1,9 +1,11 @@
 {
   "short_name": "C-BOLa",
   "name": "CO-BOLa, untuk Indonesia",
+  "description": "Dapatkan info tentang bola-mu di sini, aamiin",
   "start_url": "./index.html",
   "background_color": "#4db6ac",
   "theme_color": "#009688",
+  "display": "standalone",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
