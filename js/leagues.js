@@ -1,4 +1,4 @@
-const League = {
+const Leagues = {
     LA_lIGA: 2014,
     PREMIER_LEAGUE: 2021,
     BUNDESLIGA: 2002,
@@ -20,6 +20,6 @@ const League = {
     }
 }
 
-Object.freeze(League)
+Object.freeze(Leagues)
 
-export {League}
+export {Leagues}

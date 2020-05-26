@@ -1,6 +1,5 @@
 class ClubHighlight extends HTMLElement {
     constructor() {
-        // Calling the parent constructor
         super()
 
         // Properties
@@ -18,7 +17,7 @@ class ClubHighlight extends HTMLElement {
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 mb-3">
-                    <h3 class="text-white">Random team highlight:</h3>
+                    <h3 class="text-white">Team highlight:</h3>
                 </div>
         `
         this.endingHTML = `

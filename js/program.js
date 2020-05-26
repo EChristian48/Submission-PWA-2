@@ -2,11 +2,13 @@ import {API} from "./api.js";
 import {ClubHighlight} from "./components/club-highlight.js";
 import {Helper} from "./helper.js";
 import {BUTTON_LIST} from "./constants.js";
-import {League} from "./leagues.js";
+import {Leagues} from "./leagues.js";
+import {RandomClub} from "./components/random-club.js";
 
 class Program {
     static async main() {
         try {
+            customElements.define('random-club', RandomClub)
             await Program.registerSW()
             Program.registerButton()
             Program.loadRandomClub()
@@ -21,7 +23,7 @@ class Program {
             button.addEventListener('click', async () => {
                 history.pushState({}, '', `/${button.name}`)
                 console.log('ANJ')
-                await Program.loadStandings(League.getLeagueID(button.name))
+                await Program.loadStandings(Leagues.getLeagueID(button.name))
                 console.log('ING')
             })
         }
@@ -43,10 +45,9 @@ class Program {
         try {
             Helper.removeOldContent()
             Helper.showElement('#contentSpinner')
-            customElements.define('club-highlight', ClubHighlight)
 
             const content = document.querySelector('#content')
-            const randomClub = document.createElement('club-highlight')
+            const randomClub = document.createElement('random-club')
             const randomClubData = await API.getRandomClub()
 
             if (randomClubData) {
