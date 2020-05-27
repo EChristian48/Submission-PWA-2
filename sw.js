@@ -4,7 +4,7 @@
 // That's not even funny
 
 // Cache things
-const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-7'
+const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-8'
 const CACHED_ITEMS = [
     // HTML
     './',
@@ -26,7 +26,6 @@ const CACHED_ITEMS = [
     './js/components/standings.js',
     './js/api.js',
     './js/app.js',
-    './js/card-anim.js',
     './js/constants.js',
     './js/helper.js',
     './js/leagues.js',
