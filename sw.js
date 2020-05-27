@@ -4,7 +4,7 @@
 // That's not even funny
 
 // Cache things
-const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-5'
+const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-7'
 const CACHED_ITEMS = [
     // HTML
     './',
@@ -21,6 +21,9 @@ const CACHED_ITEMS = [
     './node_modules/@popperjs/core/dist/umd/popper.js',
     './node_modules/bootstrap/dist/js/bootstrap.js',
     './js/components/club-highlight.js',
+    './js/components/random-club.js',
+    './js/components/single-standing.js',
+    './js/components/standings.js',
     './js/api.js',
     './js/app.js',
     './js/card-anim.js',
@@ -28,6 +31,7 @@ const CACHED_ITEMS = [
     './js/helper.js',
     './js/leagues.js',
     './js/program.js',
+    './js/routes.js',
 
     // Images
     './img/Flag_of_England.svg',
@@ -72,7 +76,6 @@ self.addEventListener('fetch', (e) => {
 
     async function loadCache() {
         try {
-            console.log(new URL(e.request.url).pathname)
             if (e.request.url.indexOf(API_URL) > -1) {
                 const cache = await caches.open(CACHE_NAME)
                 const cacheResponse = await cache.match(e.request)

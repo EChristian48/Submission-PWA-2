@@ -10,4 +10,7 @@ const BUTTON_LIST = [
     '#serieAButton',
 ]
 
-export {API_URL, API_KEY, BUTTON_LIST}
+// Route
+const HOME = '#/home'
+
+export {API_URL, API_KEY, BUTTON_LIST, HOME}

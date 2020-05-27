@@ -4,38 +4,46 @@ import {Helper} from "./helper.js";
 import {BUTTON_LIST} from "./constants.js";
 import {Leagues} from "./leagues.js";
 import {RandomClub} from "./components/random-club.js";
+import {Standings} from "./components/standings.js";
 
 class Program {
     static async main() {
         try {
             customElements.define('random-club', RandomClub)
+            customElements.define('standings-table', Standings)
+
             await Program.registerSW()
-            Program.registerButton()
-            Program.loadRandomClub()
+            // Program.registerButton()
+            // Program.loadRandomClub()
         } catch (e) {
             console.error(`Hmmm entah kenapa program-nya error: ${e}`)
         }
     }
 
-    static registerButton() {
-        for (const buttonID of BUTTON_LIST) {
-            const button = document.querySelector(buttonID)
-            button.addEventListener('click', async () => {
-                history.pushState({}, '', `/${button.name}`)
-                console.log('ANJ')
-                await Program.loadStandings(Leagues.getLeagueID(button.name))
-                console.log('ING')
-            })
-        }
-    }
+    // static registerButton() {
+    //     for (const buttonID of BUTTON_LIST) {
+    //         const button = document.querySelector(buttonID)
+    //         button.addEventListener('click', async () => {
+    //             history.pushState({}, '', `/${button.name}`)
+    //             await Program.loadStandings(Leagues.getLeagueID(button.name))
+    //         })
+    //     }
+    // }
 
     static async loadStandings(leagueID) {
         try {
             Helper.removeOldContent()
             Helper.showElement('#contentSpinner')
-            console.log('Loading standings...')
-            await API.getStandings(leagueID)
-            console.log('Loaded standings')
+
+            const content = document.querySelector('#content')
+            const standingsTable = document.createElement('standings-table')
+            const standingsData = await API.getStandings(leagueID)
+
+            standingsTable.setStandings(standingsData)
+            standingsTable.render()
+
+            content.append(standingsTable)
+            Helper.hideElement('#contentSpinner')
         } catch (e) {
             console.error(`Kok gagal render standings ya? ${e}`)
         }
