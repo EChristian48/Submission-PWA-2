@@ -1,3 +1,7 @@
+// I know this is not really a component
+// Just for easier grouping you know
+// know lah, iya ga?
+
 class SingleStanding {
     constructor(standingRecord) {
         this.position = standingRecord.position
@@ -17,7 +21,7 @@ class SingleStanding {
         return `
             <tr>
             <td>${this.position}</td>
-            <td>${this.teamName}</td>
+            <td><a href="#/clubs/${this.id}" class="text-white"><u>${this.teamName}</u></a></td>
             <td>${this.playedMatches}</td>
             <td>${this.won}</td>
             <td>${this.draw}</td>

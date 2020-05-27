@@ -6,5 +6,5 @@ import '../node_modules/bootstrap/dist/js/bootstrap.js'
 import {Program} from "./program.js";
 import {Routes} from "./routes.js";
 
-Routes.init()
 Program.main()
+Routes.init()

@@ -3,6 +3,7 @@ class ClubHighlight extends HTMLElement {
         super()
 
         // Properties
+        this._id = '-'
         this._name = '-'
         this._img = '...'
         this._country = '-'
@@ -15,7 +16,10 @@ class ClubHighlight extends HTMLElement {
         // HTML structure
         this.beginningHTML = `
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-6">
+                    <button class="btn btn-block teal-200">Save this club!</button>
+                </div>
                 <div class="col-12 mb-3">
                     <h3 class="text-white">Team highlight:</h3>
                 </div>
@@ -27,6 +31,7 @@ class ClubHighlight extends HTMLElement {
     }
 
     setClub(club) {
+        this._id = club.id
         this._name = club.name
         this._img = club.crestUrl
         this._country = club.area.name
@@ -47,7 +52,7 @@ class ClubHighlight extends HTMLElement {
     getImgHTML() {
         if (this._img !== null) {
             return `
-                <img alt="The team's logo, kalo broken, salahkan API-nya karena kasih link yang salah" class="card-img mb-3" src="${this._img}">
+                <img alt="The team's logo, kalo broken, salahkan API-nya karena kasih link yang salah. Atau kamu lagi offline ya?" class="card-img mb-3" src="${this._img}">
                 </div>
             `
         }

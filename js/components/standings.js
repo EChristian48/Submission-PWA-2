@@ -32,7 +32,7 @@ class Standings extends HTMLElement {
                     <h5 class="text-white">Winner: ${this.winner}</h5>
                 </div>
                 <div class="col-12">
-                    <table class="table table-dark table-hover">
+                    <table class="table table-hover text-white">
                         <thead>
                         <tr>
                             <th>Position</th>

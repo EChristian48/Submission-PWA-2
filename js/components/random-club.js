@@ -7,9 +7,12 @@ class RandomClub extends ClubHighlight {
         // HTML structure
         this.beginningHTML = `
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-12 mb-3">
                     <h3 class="text-white">Random team highlight:</h3>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-block btn-light">Save this club!</button>
                 </div>
         `
     }
