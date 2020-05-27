@@ -20,10 +20,14 @@ const CACHED_ITEMS = [
     './node_modules/jquery/dist/jquery.js',
     './node_modules/@popperjs/core/dist/umd/popper.js',
     './node_modules/bootstrap/dist/js/bootstrap.js',
+
+    './js/lib/idb.js',
+
     './js/components/club-highlight.js',
     './js/components/random-club.js',
     './js/components/single-standing.js',
     './js/components/standings.js',
+
     './js/api.js',
     './js/app.js',
     './js/constants.js',
