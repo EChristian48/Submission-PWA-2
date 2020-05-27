@@ -13,6 +13,7 @@ class Routes {
 
         if (!hash) {
             window.location.href = HOME
+            return
         }
 
         if (hash.indexOf('standings') > -1) {
