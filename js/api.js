@@ -13,7 +13,7 @@ class API {
             const json = await response.json()
             return await json.teams[randomClub]
         } catch (e) {
-            console.error(e)
+            console.error(`HMM GAGAL NGAMBIL DATA LHO ${e}`)
             return false
         }
     }
@@ -25,10 +25,24 @@ class API {
                     'X-Auth-Token': API_KEY,
                 },
             })
-            const json = await response.json()
-            return json
+            return await response.json()
         } catch (e) {
-            console.error(e)
+            console.error(`HMM GAGAL NGAMBIL DATA LHO ${e}`)
+            return false
+        }
+    }
+
+    static async getClub(clubID) {
+        try {
+            const response = await fetch(`https://${API_URL}/teams/${clubID}`, {
+                headers: {
+                    'X-Auth-Token': API_KEY,
+                },
+            })
+            return await response.json()
+        } catch (e) {
+            console.error(`HMM GAGAL NGAMBIL DATA LHO ${e}`)
+            return false
         }
     }
 }

@@ -17,11 +17,11 @@ class ClubHighlight extends HTMLElement {
         this.beginningHTML = `
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-12 col-md-6">
-                    <button class="btn btn-block teal-200">Save this club!</button>
-                </div>
                 <div class="col-12 mb-3">
                     <h3 class="text-white">Team highlight:</h3>
+                </div>
+                <div class="col-12 mb-3">
+                    <button class="btn btn-block btn-light">Save this club!</button>
                 </div>
         `
         this.endingHTML = `

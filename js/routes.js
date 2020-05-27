@@ -9,21 +9,29 @@ class Routes {
     }
 
     static loadPage() {
-        if (!window.location.hash) {
+        const hash = window.location.hash
+
+        if (!hash) {
             window.location.href = HOME
         }
 
-        if (window.location.hash.indexOf('standings') > -1) {
-            const route = Routes.routeList[window.location.hash]
+        if (hash.indexOf('standings') > -1) {
+            const route = Routes.routeList[hash]
             route.func(route.param)
+        } else if (hash.indexOf('clubs') > -1) {
+            const clubID = hash.split('/')[2]
+            Routes.routeList['#/clubs'](clubID)
         } else {
-            Routes.routeList[window.location.hash]()
+            Routes.routeList[hash]()
         }
     }
 
     static routeList = {
         '#/home': Program.loadRandomClub,
         '#/saved': (function(){}),
+
+        // Club
+        '#/clubs': Program.loadClub,
 
         // Standings
         '#/standings/laLiga': {

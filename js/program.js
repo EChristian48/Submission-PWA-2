@@ -5,10 +5,11 @@ import {RandomClub} from "./components/random-club.js";
 import {Standings} from "./components/standings.js";
 
 class Program {
-    static async main() {
+    static async init() {
         try {
             customElements.define('random-club', RandomClub)
             customElements.define('standings-table', Standings)
+            customElements.define('club-highlight', ClubHighlight)
 
             await Program.registerSW()
         } catch (e) {
@@ -64,6 +65,29 @@ class Program {
             console.log('Registrasi sw berhasil! Kece kan')
         } catch (e) {
             console.error(`Kenapa ya? kok error register sw: ${e}`)
+        }
+    }
+
+    static async loadClub(clubID) {
+        try {
+            Helper.removeOldContent()
+            Helper.showElement('#contentSpinner')
+
+            const content = document.querySelector('#content')
+            const club = document.createElement('club-highlight')
+            const clubData = await API.getClub(clubID)
+
+            if (clubData) {
+                club.setClub(clubData)
+                club.render()
+            } else {
+                club.renderError()
+            }
+
+            content.append(club)
+            Helper.hideElement('#contentSpinner')
+        } catch (e) {
+            console.error(`Hmmm entah kenapa gagal render: ${e}`)
         }
     }
 }

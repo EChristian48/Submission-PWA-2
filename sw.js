@@ -80,6 +80,7 @@ self.addEventListener('fetch', (e) => {
                 const cacheResponse = await cache.match(e.request)
 
                 if (cacheResponse) {
+                    console.log(`Memperbarui cache: ${e.request.url}`)
                     cache.add(e.request)
                         .then(() => {
                             console.log(`Cache berhasil diperbarui (${e.request.url})`)

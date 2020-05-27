@@ -6,5 +6,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.js'
 import {Program} from "./program.js";
 import {Routes} from "./routes.js";
 
-Program.main()
-Routes.init()
+(async function () {
+    await Program.init()
+    Routes.init()
+})()
