@@ -33,10 +33,6 @@ const CACHED_ITEMS = [
     './js/routes.js',
 
     // Images
-    './img/Flag_of_England.svg',
-    './img/Flag_of_Germany.svg',
-    './img/Flag_of_Italy.svg',
-    './img/Flag_of_Spain.svg',
 
     // Icons and Manifest
     './img/icons/android-chrome-192x192.png',
