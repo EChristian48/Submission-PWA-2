@@ -11,15 +11,14 @@ const CACHED_ITEMS = [
     './index.html',
 
     // CSS
-    './node_modules/bootstrap/dist/css/bootstrap.css',
+    './node_modules/bootstrap/dist/css/bootstrap.min.css',
     './css/color.css',
     './css/card.css',
     './css/style.css',
 
     // JS
-    './node_modules/jquery/dist/jquery.js',
-    './node_modules/@popperjs/core/dist/umd/popper.js',
-    './node_modules/bootstrap/dist/js/bootstrap.js',
+    './node_modules/jquery/dist/jquery.slim.min.js',
+    './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
 
     './js/lib/idb.js',
 
