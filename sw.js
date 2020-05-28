@@ -119,7 +119,8 @@ self.addEventListener('activate',  (e) => {
 })
 
 self.addEventListener('push', (e) => {
-    const body = e.data || 'Ini Payload'
+    const body = e.data.text() || 'Ini Payload'
+    console.log(e.data)
 
     const options = {
         body: body,
