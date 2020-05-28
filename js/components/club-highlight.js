@@ -49,6 +49,7 @@ class ClubHighlight extends HTMLElement {
         this._venue = club.venue
     }
 
+    // Karena males bikin element jadi gini lol
     getNameHTML() {
         return `
             <div class="col-12 col-md-3 col-lg-4">

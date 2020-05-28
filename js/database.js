@@ -1,4 +1,4 @@
-import * as idb from "./lib/idb.js";
+import "./lib/idb.js";
 
 class Database {
     constructor(databaseName, version) {
@@ -16,9 +16,10 @@ class Database {
 
     async saveClub(clubData) {
         try {
+            console.log('Menyimpan club...')
             const transaction = await this.dbInstance.transaction('clubs', 'readwrite')
             const store = await transaction.objectStore('clubs')
-            await store.put(clubData, clubData.id)
+            await store.put(clubData)
             console.log('Club berhasil disimpan!')
             return transaction.complete
         } catch (e) {

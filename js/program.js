@@ -4,15 +4,17 @@ import {Helper} from "./helper.js";
 import {RandomClub} from "./components/random-club.js";
 import {Standings} from "./components/standings.js";
 import {Database} from "./database.js";
+import {SavedClub} from "./components/saved-club.js";
 
 class Program {
-    static db = new Database('cobola', 0)
+    static db = new Database('cobola', 1)
 
     static async init() {
         try {
             customElements.define('random-club', RandomClub)
             customElements.define('standings-table', Standings)
             customElements.define('club-highlight', ClubHighlight)
+            customElements.define('saved-club', SavedClub)
 
             await Program.registerSW()
             await Program.db.init()
@@ -67,6 +69,15 @@ class Program {
 
             content.append(randomClub)
             Helper.hideElement('#contentSpinner')
+
+            const button = document.getElementById('saveButton')
+            button.addEventListener('click', async () => {
+                try {
+                    await Program.db.saveClub(randomClubData)
+                } catch (e) {
+                    console.error(`Gagal menyimpan club: ${e}`)
+                }
+            })
         } catch (e) {
             console.error(`Hmmm entah kenapa gagal render: ${e}`)
         }
@@ -90,6 +101,15 @@ class Program {
 
             content.append(club)
             Helper.hideElement('#contentSpinner')
+
+            const button = document.getElementById('saveButton')
+            button.addEventListener('click', async () => {
+                try {
+                    await Program.db.saveClub(clubData)
+                } catch (e) {
+                    console.error(`Gagal menyimpan club: ${e}`)
+                }
+            })
         } catch (e) {
             console.error(`Hmmm entah kenapa gagal render: ${e}`)
         }
@@ -100,12 +120,19 @@ class Program {
             Helper.removeOldContent()
             Helper.showElement('#contentSpinner')
 
-            const savedClubs = Program.db.getAllClubs()
-            console.log(savedClubs)
+            const content = document.querySelector('#content')
+            const savedClubsData = await Program.db.getAllClubs()
+
+            for (const savedClubData of savedClubsData) {
+                const savedClub = document.createElement('saved-club')
+                savedClub.setClub(savedClubData)
+                savedClub.render()
+                content.append(savedClub)
+            }
 
             Helper.hideElement('#contentSpinner')
         } catch (e) {
-
+            console.error(`HMM ERROR WAE: ${e}`)
         }
     }
 }

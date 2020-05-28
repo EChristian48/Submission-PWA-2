@@ -29,7 +29,7 @@ class Routes {
 
     static routeList = {
         '#/home': Program.loadRandomClub,
-        '#/saved': (function(){}),
+        '#/saved': Program.loadSavedClubs,
 
         // Club
         '#/clubs': Program.loadClub,
