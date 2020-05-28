@@ -6,8 +6,9 @@ class Database {
         this.version = version
     }
 
+    // Override ini kalo mau ganti struktur
     upgradeCallback(upgradeDb) {
-        const clubsObjStore = upgradeDb.createObjectStore('clubs', {keyPath: 'id'})
+        upgradeDb.createObjectStore('clubs', {keyPath: 'id'})
     }
 
     async init() {
