@@ -27,13 +27,19 @@ class NotificationManager {
         try {
             if ('PushManager' in window) {
                 const registration = await navigator.serviceWorker.getRegistration()
-                const subscription = registration.pushManager.subscribe({
+                const subscription = await registration.pushManager.subscribe({
                     userVisibleOnly: true,
-                    applicationServerKey: Helper.base64ToUInt8Arr('BH7CLufxTvpmkPiFUHx5Z880MgRruU2BBa1dwOsE55oonIw2sOnuWAGpo0eKW2rI7GqIpZysG6QOfLjQ3EoekHA')
+                    applicationServerKey: Helper.base64ToUInt8Arr(
+                        'BH7CLufxTvpmkPiFUHx5Z880MgRruU2BBa1dwOsE55oonIw2sOnuWAGpo0eKW2rI7GqIpZysG6QOfLjQ3EoekHA'
+                    )
                 })
                 console.log(`BERHASIL LAH YA WALAU GA NGERTI ${subscription.endpoint}`)
-                console.log(`APAAN SIH ANJIR p256h: ${btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh'))))}`)
-                console.log(`APAAN SIH ANJIR auth: ${btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth'))))}`)
+                console.log(`APAAN SIH ANJIR p256h: ${btoa(
+                    String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh'))))}`
+                )
+                console.log(`APAAN SIH ANJIR auth: ${btoa(
+                    String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth'))))}`
+                )
             }
         } catch (e) {
             console.error(`Hmmm error ya pas subscribe: ${e}`)

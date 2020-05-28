@@ -117,3 +117,18 @@ self.addEventListener('activate',  (e) => {
         )
     }
 })
+
+self.addEventListener('push', (e) => {
+    const body = e.data || 'Ini Payload'
+
+    const options = {
+        body: body,
+        data: {
+            dateOfArrival: Date.now()
+        },
+    }
+
+    e.waitUntil(
+        self.registration.showNotification('Ini Push Notification', options)
+    )
+})
