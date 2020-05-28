@@ -1,5 +1,7 @@
 const path = require('path')
 
+// Karena GitHub pages kayanya ga nge-serve folder dist
+// Jadi ditaro di js/dist
 module.exports = {
     mode: "production",
     entry: "./js/app.js",
