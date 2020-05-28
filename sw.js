@@ -26,7 +26,7 @@ const CACHED_ITEMS = [
     './css/style.css',
 
     // JS
-    './dist/app.js',
+    './js/dist/app.js',
 ]
 // Old cache
 // const CACHED_ITEMS = [
