@@ -104,7 +104,7 @@ self.addEventListener('fetch', (e) => {
     }
 })
 
-self.addEventListener('activate',  (e) => {
+self.addEventListener('activate', (e) => {
     e.waitUntil(deleteOldCache())
 
     async function deleteOldCache() {
