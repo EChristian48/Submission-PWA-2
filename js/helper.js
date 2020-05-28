@@ -21,6 +21,21 @@ class Helper {
             element.remove()
         }
     }
+
+    static base64ToUInt8Arr(string) {
+        const padding = '='.repeat((4 - string.length % 4) % 4)
+        const base64 = (string + padding)
+            .replace(/-/g, '+')
+            .replace(/_/g, '/')
+        const raw = window.atob(base64)
+        const output = new Uint8Array(raw.length)
+
+        for (let i = 0; i < raw.length; ++i) {
+            output[i] = raw.charCodeAt(i)
+        }
+
+        return output
+    }
 }
 
 export {Helper}
