@@ -25,8 +25,12 @@ class Program {
 
     static async registerSW() {
         try {
-            await navigator.serviceWorker.register('../sw.js')
-            console.log('Registrasi sw berhasil! Kece kan')
+            if ('serviceWorker' in navigator) {
+                await navigator.serviceWorker.register('../sw.js')
+                console.log('Registrasi sw berhasil! Kece kan')
+            } else {
+                throw new Error('Browsermu ga support mas')
+            }
         } catch (e) {
             console.error(`Kenapa ya? kok error register sw: ${e}`)
         }
