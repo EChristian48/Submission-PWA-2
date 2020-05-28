@@ -11,9 +11,6 @@ class RandomClub extends ClubHighlight {
                 <div class="col-12 mb-3">
                     <h3 class="text-white">Random team highlight:</h3>
                 </div>
-                <div class="col-12 mb-3">
-                    <button class="btn btn-block btn-light">Save this club!</button>
-                </div>
         `
     }
 }

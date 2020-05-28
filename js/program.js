@@ -3,8 +3,11 @@ import {ClubHighlight} from "./components/club-highlight.js";
 import {Helper} from "./helper.js";
 import {RandomClub} from "./components/random-club.js";
 import {Standings} from "./components/standings.js";
+import {Database} from "./database.js";
 
 class Program {
+    static db = new Database('cobola', 0)
+
     static async init() {
         try {
             customElements.define('random-club', RandomClub)
@@ -12,8 +15,18 @@ class Program {
             customElements.define('club-highlight', ClubHighlight)
 
             await Program.registerSW()
+            await Program.db.init()
         } catch (e) {
             console.error(`Hmmm entah kenapa program-nya error: ${e}`)
+        }
+    }
+
+    static async registerSW() {
+        try {
+            await navigator.serviceWorker.register('../sw.js')
+            console.log('Registrasi sw berhasil! Kece kan')
+        } catch (e) {
+            console.error(`Kenapa ya? kok error register sw: ${e}`)
         }
     }
 
@@ -59,15 +72,6 @@ class Program {
         }
     }
 
-    static async registerSW() {
-        try {
-            await navigator.serviceWorker.register('../sw.js')
-            console.log('Registrasi sw berhasil! Kece kan')
-        } catch (e) {
-            console.error(`Kenapa ya? kok error register sw: ${e}`)
-        }
-    }
-
     static async loadClub(clubID) {
         try {
             Helper.removeOldContent()
@@ -88,6 +92,20 @@ class Program {
             Helper.hideElement('#contentSpinner')
         } catch (e) {
             console.error(`Hmmm entah kenapa gagal render: ${e}`)
+        }
+    }
+
+    static async loadSavedClubs() {
+        try {
+            Helper.removeOldContent()
+            Helper.showElement('#contentSpinner')
+
+            const savedClubs = Program.db.getAllClubs()
+            console.log(savedClubs)
+
+            Helper.hideElement('#contentSpinner')
+        } catch (e) {
+
         }
     }
 }

@@ -4,7 +4,7 @@
 // That's not even funny
 
 // Cache things
-const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-8'
+const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-9'
 const CACHED_ITEMS = [
     // HTML
     './',

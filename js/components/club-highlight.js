@@ -14,16 +14,23 @@ class ClubHighlight extends HTMLElement {
         this._venue = '-'
 
         // HTML structure
+        this.saveButton = document.createElement('button')
+        this.saveButton.id = 'saveButton'
+        this.saveButton.classList.add('btn', 'btn-block', 'btn-light')
+        this.saveButton.innerText = 'Save this club!'
+
+        this.buttonContainer = document.createElement('div')
+        this.buttonContainer.classList.add('col-12', 'mb-3')
+        this.buttonContainer.append(this.saveButton)
+
         this.beginningHTML = `
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 mb-3">
                     <h3 class="text-white">Team highlight:</h3>
                 </div>
-                <div class="col-12 mb-3">
-                    <button class="btn btn-block btn-light">Save this club!</button>
-                </div>
         `
+
         this.endingHTML = `
             </div>
         </div>
@@ -125,6 +132,7 @@ class ClubHighlight extends HTMLElement {
 
     render() {
         this.innerHTML = this.beginningHTML +
+            this.buttonContainer.outerHTML +
             this.getNameHTML() +
             this.getImgHTML() +
             this.getCountryHTML() +
