@@ -1,5 +1,5 @@
-import '../node_modules/jquery/dist/jquery.slim.min.js'
-import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
+import './lib/jquery.slim.min.js'
+import './lib/bootstrap.bundle.min.js'
 
 // Custom JavaScript
 import {Program} from "./program.js";

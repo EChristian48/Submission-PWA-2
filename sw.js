@@ -4,34 +4,36 @@
 // That's not even funny
 
 // Cache things
-const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-9'
+const CACHE_NAME = 'KNACK-IS-BACK-BAYBEE-V-12'
 const CACHED_ITEMS = [
     // HTML
     './',
     './index.html',
 
     // CSS
-    './node_modules/bootstrap/dist/css/bootstrap.min.css',
+    './css/bootstrap.min.css',
     './css/color.css',
     './css/card.css',
     './css/style.css',
 
     // JS
-    './node_modules/jquery/dist/jquery.slim.min.js',
-    './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
-
+    './js/lib/jquery.slim.min.js',
+    './js/lib/bootstrap.bundle.min.js',
     './js/lib/idb.js',
 
     './js/components/club-highlight.js',
     './js/components/random-club.js',
+    './js/components/saved-club.js',
     './js/components/single-standing.js',
     './js/components/standings.js',
 
     './js/api.js',
     './js/app.js',
     './js/constants.js',
+    './js/database.js',
     './js/helper.js',
     './js/leagues.js',
+    './js/notification.js',
     './js/program.js',
     './js/routes.js',
 
